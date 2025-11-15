@@ -10,10 +10,10 @@ export const Navigation = () => {
               YourBrand
             </a>
             <div className="hidden md:flex gap-6">
-              <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
+              <a href="/#features" className="text-sm font-medium hover:text-primary transition-colors">
                 Features
               </a>
-              <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+              <a href="/about" className="text-sm font-medium hover:text-primary transition-colors">
                 About
               </a>
               <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
