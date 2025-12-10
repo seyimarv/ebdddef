@@ -1,19 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles, Zap } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
 const Pricing = () => {
   const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleCheckout = async () => {
+    if (!user) {
+      toast.error("Please sign in to continue");
+      navigate("/auth");
+      return;
+    }
+
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke("create-payment", {
-        body: { email: null },
+        body: { email: user.email },
       });
 
       if (error) throw error;
@@ -97,7 +107,7 @@ const Pricing = () => {
                 onClick={handleCheckout}
                 disabled={loading}
               >
-                {loading ? "Processing..." : "Get Pro Access"}
+                {loading ? "Processing..." : user ? "Get Pro Access" : "Sign in to Purchase"}
               </Button>
 
               <p className="text-center text-sm text-muted-foreground mt-4">
