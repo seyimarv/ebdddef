@@ -2,3 +2,6 @@ project_id = "tiovazvdedvjjsmjwhxj"
 
 [functions.chat]
 verify_jwt = false
+
+[functions.create-payment]
+verify_jwt = false
