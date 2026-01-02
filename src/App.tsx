@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Auth from "./pages/Auth";
 import Pricing from "./pages/Pricing";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import { AiChat } from "./components/AiChat";
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
+            <Route path="/product/:handle" element={<ProductDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
