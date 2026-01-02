@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { LogOut } from "lucide-react";
+import { CartDrawer } from "./CartDrawer";
 
 export const Navigation = () => {
   const { user, signOut } = useAuth();
@@ -28,6 +29,7 @@ export const Navigation = () => {
           </div>
           
           <div className="flex items-center gap-4">
+            <CartDrawer />
             {user ? (
               <>
                 <span className="text-sm text-muted-foreground hidden sm:inline">
